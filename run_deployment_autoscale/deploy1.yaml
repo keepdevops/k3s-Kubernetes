@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shiba  # Deployment name
+  labels:
+    app: akita  # Label for pods
+spec:
+  replicas: 3  # Initial Starting Number of pod replicas
+  selector:
+    matchLabels:
+      app: akita  # Selector for pods
+  template:
+    metadata:
+      labels:
+        app: akita  # Label for pods within the template
+    spec:
+      containers:
+      - name: akita  # Container name
+        image: 127.0.0.1:5000/python3:latest  # Container image
+        resources:
+          requests:
+            cpu: "20m" 
+          limits:
+            cpu: "25m" 
+        ports:
+        - containerPort: 5555  # Port mapping
+          protocol: TCP
+        command: [ "/DEVOPS/talk.dogk"]  # Command to run
+        imagePullPolicy: IfNotPresent
+
+        
