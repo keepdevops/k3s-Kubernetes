@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+#---------
+# CLIENT
+# talk
+#---------
+
+import time
+import socket
+import sys
+import zmq
+import random
+from random import randrange
+
+n = len(sys.argv)
+
+# DEFAULT
+myport = "tcp://127.0.0.1:5555"
+print(f'name={sys.argv[0]}')
+
+
+if n > 1:
+   # print(f'num arguments={n}')
+   print(f'Port Number ={myport} to connect to...')
+   myport = sys.argv[1]
+
+
+context = zmq.Context()
+mysocket = context.socket(zmq.REQ)
+print(f' Attempt connect to {myport}')
+#socket.connect("tcp://0.0.0.0:5001") # when outside container
+a = mysocket.connect(myport)
+
+
+thisHost = socket.gethostname() 
+print(f' {thisHost}...connected')
+
+f=open("/tmp/talk","a")
+f.write(f'{thisHost}...connected\n')
+f.flush()
+f.close()
+
+MSG_COUNT = randrange(2222)
+# print(f'MSG_COUNT={MSG_COUNT}')
+
+time_start = time.time
+
+while True:
+    MSG_COUNT = MSG_COUNT + 1
+
+    ### print(f' Sending bind request number {MSG_COUNT}') 
+    ### mysocket.send(b" Data from client ")
+
+    mysocket.send_string(f'{thisHost}_Transaction[{MSG_COUNT}]')
+
+    ### message = mysocket.recv()
+    message = mysocket.recv_string()
+
+    f=open("/tmp/talk","a")
+    print(  f'{message}')
+    f.write(f'{message}')
+    f.write("\n")
+    f.flush()
+    f.close()
+
+mysocket.send_string(f'talk log done')
+
+# EOF
