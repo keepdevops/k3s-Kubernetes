@@ -17,12 +17,12 @@ Step2: k3s-Kubernetes  then CODE download repository based on your credentials.
        
 
 
-Step2: Create Docker private registry "yes or no" with the bash file below:
+Step3: Create Docker private registry "yes or no" with the bash file below:
 
 	./Docker.build.first.bash
 
 
-Step3: Create docker image 127.0.0.1:5000/python3:latest and performs verification  that docker image is in docker private registry
+ Bash script creates docker image 127.0.0.1:5000/python3:latest and performs verification  that docker image is in docker private registry
 
 
 Step4: Choose deployment you want to run
