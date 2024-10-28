@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+#---------
+# py-logger
+#---------
+
+import time
+import socket
+import sys
+
+n = len(sys.argv)
+print(f'name={sys.argv[0]}')
+
+# DEFAULT DIRECTORY
+newdir = "/tmp"
+sleep = 2
+
+if n > 1:
+   #print(f'log num arguments={n}')
+   print(f'log dir ={newdir} to connect to...')
+   newdir = sys.argv[1]
+   if n > 2:
+      sleep  = int(sys.argv[2])
+
+thisHost = socket.gethostname()
+thisHost = newdir + "/log-" + thisHost + ".log"
+
+for request in range(999999):
+    localtime = time.localtime()
+    result    = time.strftime("%I:%M:%S %p", localtime)
+
+    f = open(thisHost,"a")
+    f.write(f'{result}\n')
+    f.flush()
+    f.close()
+
+    print(f'{thisHost} {result}')
+    time.sleep(sleep)
+
+
+# EOF
+
