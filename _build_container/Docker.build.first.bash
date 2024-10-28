@@ -1,8 +1,8 @@
 #!/bin/bash
 
-
-
-echo "Do you want to make a private docker registry? "
+echo "????????????????????????????????????????????????"
+echo "Do you want to make a private docker registry?// "
+echo "////////////////////////////////////////////////"
 echo "<yes> or <no>"
 read aaa
 
@@ -23,7 +23,7 @@ docker build --no-cache -t  127.0.0.1:5000/python3 .
 
 # TAG due to moving from multinode cluster to single node silicon
 # ... and for having multiple examples run locally.
-docker tag 127.0.0.1:5000/python3  localhost:5000/phyon3:latest
+docker tag 127.0.0.1:5000/python3  localhost:5000/python3:latest
 docker tag 127.0.0.1:5000/python3  127.0.0.1:5000/ubuntu:latest
 docker tag 127.0.0.1:5000/python3  localhost:5000/ubuntu:latest
 docker tag 127.0.0.1:5000/python3  127.0.0.1:5000/php-redis:latest
