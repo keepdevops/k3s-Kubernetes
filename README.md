@@ -11,7 +11,10 @@ Initial Conditions:
 
 Step1: Code download using HTTPS Paste into Browser the following:
 
-	 https://github.com/keepdevops/k3s-Kubernetes.git
+	 https://github.com/keepdevops/=repositories
+
+Step2: k3s-Kubernetes  then CODE download repository based on your credentials.
+       
 
 
 Step2: Create Docker private registry "yes or no" with the bash file below:
