@@ -1,4 +1,4 @@
-k3s-Kubernetes
+ks-Kubernetes
 Initial Conditions:
 
 1.Tested on Mac M3 Apple Silicon
@@ -20,8 +20,6 @@ Step2: k3s-Kubernetes  then code download repository based on your credentials.
 
 Step3: cd _build_container/ return then ls and then ./Docker.build.first.bash
 
-
-	cd _build_container/ls  ./Docker.build.first.bash
 
 
 Step4: Docker.build.first.bash will ask if you want to create a registry "yes or no"
