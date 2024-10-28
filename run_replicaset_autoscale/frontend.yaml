@@ -17,8 +17,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        ### image: localhost:5000/php-redis
-        image: localhost:5000/ubuntu
+        image: localhost:5000/python3
         command: ["sleep", "120"]
         imagePullPolicy: IfNotPresent
 
